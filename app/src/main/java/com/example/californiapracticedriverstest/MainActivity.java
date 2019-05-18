@@ -18,29 +18,30 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
 
-    QuestionBank questionBank;
-    RadioGroup radioGroupLayout;
-    RadioGroup radioGroup;
-    RadioButton radioButton1;
-    RadioButton radioButton2;
-    RadioButton radioButton3;
-    LinearLayout checkBoxLayout;
-    CheckBox checkBox1;
-    CheckBox checkBox2;
-    CheckBox checkBox3;
-    EditText editText;
 
-    LinearLayout editTextLayout;
-    Button nextButton;
-    TextView questionTextView;
-    TextView questionCount;
+    private RadioGroup radioGroupLayout;
+    private RadioGroup radioGroup;
+    private RadioButton radioButton1;
+    private RadioButton radioButton2;
+    private RadioButton radioButton3;
+    private LinearLayout checkBoxLayout;
+    private CheckBox checkBox1;
+    private CheckBox checkBox2;
+    private CheckBox checkBox3;
+    private EditText editText;
 
-    int currentQuestionNum = -1;
-    double score;
-    String lastQuestionType = "";
-    String selectedRadioButton = "";
-    boolean checkedQuestion;
-    ArrayList<String> answerList = new ArrayList<String>();
+    private LinearLayout editTextLayout;
+    private Button nextButton;
+    private TextView questionTextView;
+    private TextView questionCount;
+
+    private QuestionBank questionBank;
+    private int currentQuestionNum = -1;
+    private double score;
+    private String lastQuestionType = "";
+    private String selectedRadioButton = "";
+    private boolean checkedQuestion;
+    private ArrayList<String> answerList = new ArrayList<String>();
 
 
     protected void onCreate(Bundle savedInstanceState) {
