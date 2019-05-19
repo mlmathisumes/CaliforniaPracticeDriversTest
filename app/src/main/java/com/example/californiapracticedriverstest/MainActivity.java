@@ -154,7 +154,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Check to see if the previous answered selected was correct
+     * Check to see if the previous answered selected was correct. Display toast stating if the answered entered
+     * is correct or incorrect. 
      *
      * @return
      */
@@ -224,13 +225,13 @@ public class MainActivity extends AppCompatActivity {
      * @return
      */
     public void startQuiz() {
-        if (questionBank.getQuestionSize() > 0) {
+        if (!isQuestionBankEmpty()) {
             questionCount.setText((currentQuestionNum + 1) + "/" + questionBank.getQuestionSize());
-            if (currentQuestionNum < 0) {
+            if (!userStartedQuiz()) {
                 questionTextView.setText(R.string.start_message);
                 nextButton.setText(R.string.start);
                 questionCount.setText("0/" + questionBank.getQuestionSize());
-            } else if (currentQuestionNum == questionBank.getQuestionSize() - 1) {
+            } else if(isLastQuestion()) {
                 nextButton.setText(R.string.submit);
                 questionTextView.setText(questionBank.getQuestion(currentQuestionNum));
                 updateLayout();
@@ -243,6 +244,45 @@ public class MainActivity extends AppCompatActivity {
         } else {
             // Disable the nextButton if there are no question available
             nextButton.setEnabled(false);
+        }
+    }
+
+    /**
+     * Check if the current question is the last question
+     *
+     * @return      True if the current question is the last, false if not
+     */
+    private boolean isLastQuestion(){
+        if(currentQuestionNum == questionBank.getQuestionSize() - 1){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    /**
+     * Check if the Question bank is empty
+     *
+     * @return True if the question bank is empty, False if not.
+     */
+    private boolean isQuestionBankEmpty(){
+        if(questionBank.getQuestionSize() > 0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    /**
+     * Check if the user has started the quiz
+     *
+     * @return True if the user has started the quiz, False if not.
+     */
+    private boolean userStartedQuiz(){
+        if(currentQuestionNum < 0){
+            return false;
+        }else{
+            return true;
         }
     }
 
