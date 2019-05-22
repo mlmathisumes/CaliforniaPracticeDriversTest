@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Check to see if the previous answered selected was correct. Display toast stating if the answered entered
-     * is correct or incorrect. 
+     * is correct or incorrect.
      *
      * @return
      */
@@ -266,7 +266,7 @@ public class MainActivity extends AppCompatActivity {
      * @return True if the question bank is empty, False if not.
      */
     private boolean isQuestionBankEmpty(){
-        if(questionBank.getQuestionSize() > 0){
+        if(questionBank.getQuestionSize() > 0 && questionBank != null){
             return false;
         }else{
             return true;
